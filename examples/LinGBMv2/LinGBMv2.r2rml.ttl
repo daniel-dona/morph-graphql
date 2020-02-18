@@ -141,7 +141,7 @@
 	rr:predicateObjectMap [
 		rr:predicate ex:worksFor;
 		rr:objectMap    [
-			rr:parentTriplesMap <TMDeparment>;
+			rr:parentTriplesMap <TMDepartment>;
 			rr:joinCondition [ rr:child "worksFor" ; rr:parent "nr" ; ];
 		];	
 	];
@@ -179,7 +179,7 @@
 	rr:predicateObjectMap [
 		rr:predicate ex:headOf;
 		rr:objectMap    [
-			rr:parentTriplesMap <TMDeparment>;
+			rr:parentTriplesMap <TMDepartment>;
 			rr:joinCondition [ rr:child "headOf" ; rr:parent "nr" ; ];
 		];	
 	];
