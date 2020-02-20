@@ -290,7 +290,7 @@
 
 	rr:logicalTable  [
 		#rr:tableName  "lecturer";
-		rr:sqlQuery """SELECT lecturer.*, faculty.* FROM professor JOIN lecturer ON lecturer.nr = faculty.nr"""
+		rr:sqlQuery """SELECT lecturer.*, faculty.* FROM lecturer JOIN faculty ON lecturer.nr = faculty.nr"""
 	];	
 	
 	rr:subjectMap [
