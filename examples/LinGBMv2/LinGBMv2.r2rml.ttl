@@ -26,6 +26,14 @@
 		rr:predicate ex:name;
 		rr:objectMap    [ rr:column "name" ];
 	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:undergraduateDegreeObtainedByFaculty;
+		rr:objectMap    [
+			rr:parentTriplesMap <TMFaculty>;
+			rr:joinCondition [ rr:child "nr" ; rr:parent "undergraduateDegreeFrom" ; ];
+		];	
+	];
 .
 
 <TMDepartment>
@@ -141,7 +149,7 @@
 	rr:predicateObjectMap [
 		rr:predicate ex:worksFor;
 		rr:objectMap    [
-			rr:parentTriplesMap <TMDepartment>;
+			rr:parentTriplesMap <TMDeparment>;
 			rr:joinCondition [ rr:child "worksFor" ; rr:parent "nr" ; ];
 		];	
 	];
@@ -179,7 +187,7 @@
 	rr:predicateObjectMap [
 		rr:predicate ex:headOf;
 		rr:objectMap    [
-			rr:parentTriplesMap <TMDepartment>;
+			rr:parentTriplesMap <TMDeparment>;
 			rr:joinCondition [ rr:child "headOf" ; rr:parent "nr" ; ];
 		];	
 	];
@@ -342,12 +350,12 @@
 <TMGraduateCourse>
 
 	rr:logicalTable  [
-		rr:tableName  "graduateCourse";
+		rr:tableName  "publication";
 	];	
 	
 	rr:subjectMap [
 		rr:template "http://lingbm.linkeddata.es/graduate_course/{nr}";
-		rr:class schema:GraduateCourse
+		rr:class schema:Publication
 	];
 	
 	rr:predicateObjectMap [
