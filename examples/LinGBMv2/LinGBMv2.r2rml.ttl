@@ -382,12 +382,12 @@
 <TMGraduateCourse>
 
 	rr:logicalTable  [
-		rr:tableName  "publication";
+		rr:tableName  "graduateCourse";
 	];	
 	
 	rr:subjectMap [
 		rr:template "http://lingbm.linkeddata.es/graduate_course/{nr}";
-		rr:class schema:Publication
+		rr:class schema:GraduateCourse
 	];
 	
 	rr:predicateObjectMap [
