@@ -198,7 +198,8 @@
 <TMProfessor>
 
 	rr:logicalTable  [
-		rr:tableName  "professor";
+		#rr:tableName  "professor";
+		rr:sqlQuery  """SELECT professor.*, faculty.* FROM professor JOIN faculty ON professor.nr = faculty.nr"""
 	];	
 	
 	rr:subjectMap [
@@ -208,10 +209,7 @@
 	
 	rr:predicateObjectMap [
 		rr:predicate ex:nr;
-		rr:objectMap    [
-			rr:parentTriplesMap <TMFaculty>;
-			rr:joinCondition [ rr:child "nr" ; rr:parent "nr" ; ];
-		];	
+		rr:objectMap    [ rr:column  "nr" ]	
 	];
 	
 	rr:predicateObjectMap [
@@ -228,7 +226,62 @@
 		rr:predicate ex:headOf;
 		rr:objectMap    [
 			rr:parentTriplesMap <TMDepartment>;
-			rr:joinCondition [ rr:child "headOf" ; rr:parent "nr" ; ];
+			rr:joinCondition [ rr:child "professor.headOf" ; rr:parent "nr" ; ];
+		];	
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:name;
+		rr:objectMap    [ rr:column "name" ];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:telephone;
+		rr:objectMap    [ rr:column "telephone" ];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:emailAddress;
+		rr:objectMap    [ rr:column "emailAddress" ];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:undergraduateDegreeFrom;
+		rr:objectMap    [
+			rr:parentTriplesMap <TMUniversity>;
+			rr:joinCondition [ rr:child "undergraduateDegreeFrom" ; rr:parent "nr" ; ];
+		];	
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:masterDegreeFrom;
+		rr:objectMap    [
+			rr:parentTriplesMap <TMUniversity>;
+			rr:joinCondition [ rr:child "masterDegreeFrom" ; rr:parent "nr" ; ];
+		];	
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:doctoralDegreeFrom;
+		rr:objectMap    [
+			rr:parentTriplesMap <TMUniversity>;
+			rr:joinCondition [ rr:child "doctoralDegreeFrom" ; rr:parent "nr" ; ];
+		];	
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:worksFor;
+		rr:objectMap    [
+			rr:parentTriplesMap <TMDepartment>;
+			rr:joinCondition [ rr:child "worksFor" ; rr:parent "nr" ; ];
+		];	
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:publications;
+		rr:objectMap    [
+			rr:parentTriplesMap <TMPublication>;
+			rr:joinCondition [ rr:child "nr" ; rr:parent "mainAuthor" ; ];
 		];	
 	];
 .
@@ -236,7 +289,8 @@
 <TMLecturer>
 
 	rr:logicalTable  [
-		rr:tableName  "lecturer";
+		#rr:tableName  "lecturer";
+		rr:sqlQuery """SELECT lecturer.*, faculty.* FROM professor JOIN lecturer ON lecturer.nr = faculty.nr"""
 	];	
 	
 	rr:subjectMap [
