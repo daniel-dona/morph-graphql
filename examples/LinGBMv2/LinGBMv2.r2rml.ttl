@@ -88,6 +88,14 @@
 			rr:joinCondition [ rr:child "subOrganizationOf" ; rr:parent "nr" ; ];
 		];	
 	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:head;
+		rr:objectMap    [
+			rr:parentTriplesMap <TMProfessor>;
+			rr:joinCondition [ rr:child "nr" ; rr:parent "headOf" ; ];
+		];	
+	];
 .
 
 <TMResearchGroup>
