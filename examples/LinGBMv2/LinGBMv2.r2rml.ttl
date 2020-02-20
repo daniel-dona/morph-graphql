@@ -177,6 +177,14 @@
 			rr:joinCondition [ rr:child "worksFor" ; rr:parent "nr" ; ];
 		];	
 	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:publications;
+		rr:objectMap    [
+			rr:parentTriplesMap <TMPublication>;
+			rr:joinCondition [ rr:child "nr" ; rr:parent "mainAuthor" ; ];
+		];	
+	];
 .
 
 <TMProfessor>
