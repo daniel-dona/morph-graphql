@@ -34,6 +34,30 @@
 			rr:joinCondition [ rr:child "nr" ; rr:parent "undergraduateDegreeFrom" ; ];
 		];	
 	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:mastergraduateDegreeObtainers;
+		rr:objectMap    [
+			rr:parentTriplesMap <TMFaculty>;
+			rr:joinCondition [ rr:child "nr" ; rr:parent "masterDegreeFrom" ; ];
+		];	
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:doctoralDegreeObtainers;
+		rr:objectMap    [
+			rr:parentTriplesMap <TMFaculty>;
+			rr:joinCondition [ rr:child "nr" ; rr:parent "doctoralDegreeFrom" ; ];
+		];	
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:undergraduateDegreeObtainedBystudent;
+		rr:objectMap    [
+			rr:parentTriplesMap <TMGraduateStudent>;
+			rr:joinCondition [ rr:child "nr" ; rr:parent "undergraduateDegreeFrom" ; ];
+		];	
+	];
 .
 
 <TMDepartment>
