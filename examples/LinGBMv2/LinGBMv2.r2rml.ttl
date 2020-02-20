@@ -305,6 +305,61 @@
 			rr:joinCondition [ rr:child "nr" ; rr:parent "nr" ; ];
 		];	
 	];
+	
+		rr:predicateObjectMap [
+		rr:predicate ex:name;
+		rr:objectMap    [ rr:column "name" ];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:telephone;
+		rr:objectMap    [ rr:column "telephone" ];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:emailAddress;
+		rr:objectMap    [ rr:column "emailAddress" ];
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:undergraduateDegreeFrom;
+		rr:objectMap    [
+			rr:parentTriplesMap <TMUniversity>;
+			rr:joinCondition [ rr:child "undergraduateDegreeFrom" ; rr:parent "nr" ; ];
+		];	
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:masterDegreeFrom;
+		rr:objectMap    [
+			rr:parentTriplesMap <TMUniversity>;
+			rr:joinCondition [ rr:child "masterDegreeFrom" ; rr:parent "nr" ; ];
+		];	
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:doctoralDegreeFrom;
+		rr:objectMap    [
+			rr:parentTriplesMap <TMUniversity>;
+			rr:joinCondition [ rr:child "doctoralDegreeFrom" ; rr:parent "nr" ; ];
+		];	
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:worksFor;
+		rr:objectMap    [
+			rr:parentTriplesMap <TMDepartment>;
+			rr:joinCondition [ rr:child "worksFor" ; rr:parent "nr" ; ];
+		];	
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:publications;
+		rr:objectMap    [
+			rr:parentTriplesMap <TMPublication>;
+			rr:joinCondition [ rr:child "nr" ; rr:parent "mainAuthor" ; ];
+		];	
+	];
 .
 
 <TMGraduateStudent>
