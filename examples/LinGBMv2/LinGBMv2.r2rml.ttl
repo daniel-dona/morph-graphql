@@ -96,6 +96,14 @@
 			rr:joinCondition [ rr:child "nr" ; rr:parent "headOf" ; ];
 		];	
 	];
+	
+	rr:predicateObjectMap [
+		rr:predicate ex:faculties;
+		rr:objectMap    [
+			rr:parentTriplesMap <TMFaculty>;
+			rr:joinCondition [ rr:child "nr" ; rr:parent "worksFor" ; ];
+		];	
+	];
 .
 
 <TMResearchGroup>
